@@ -1,0 +1,33 @@
+/** This file contains styles for the input component. */
+.input-component {
+	position: relative;
+	width: 100%;
+
+	input {
+		border: 2px solid #545f7d26;
+		height: 50px;
+		min-width: 0;
+		width: 100%;
+		border-radius: 5px;
+		font-size: 14px;
+		padding: 0 1rem;
+
+		&:focus {
+			border-color: var(--primary-cta-color);
+		}
+
+		&::placeholder {
+			color: #545f7d;
+		}
+	}
+
+	button {
+		position: absolute;
+		top: 50%;
+		right: 1rem;
+		font-size: 12px;
+		font-weight: 700;
+		color: var(--primary-cta-color);
+		transform: translateY(-50%);
+	}
+}
