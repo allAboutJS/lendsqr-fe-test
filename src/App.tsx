@@ -1,5 +1,7 @@
-function App() {
-  return null
-}
+import "./styles/NotificationsSystem.scss";
 
-export default App
+const App = () => {
+  return null;
+};
+
+export default App;
