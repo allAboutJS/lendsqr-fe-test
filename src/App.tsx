@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./pages/Login";
 import "./styles/App.scss";
+import "./styles/NotificationsSystem.scss";
 
 const router = createBrowserRouter([
   {
