@@ -1,7 +1,10 @@
 import { FormEvent, useRef, useState } from "react";
 import Input from "./Input";
+import { alert, toast } from "../utils/notifications-system";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
+	const navigate = useNavigate();
 	const [email, setEmail] = useState<string>("");
 	const [password, setPassword] = useState<string>("");
 	const emailRef = useRef<HTMLInputElement>(null);
@@ -9,29 +12,28 @@ const LoginForm = () => {
 	const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 	const passwordRegex =
 		/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
-	// const emailErrorMsg = "Invalid email. Please use a valid email.";
-	// const passwordErrorMsg = "Password must contain at least one uppercase, one lowercase and one special character, and must be at least six (6) characters"
+	const emailErrorMsg =
+		"Invalid email format. Please enter a valid email address.";
+	const passwordErrorMsg =
+		"Password must be at least six (6) characters (at least one uppercase, one lowercase and one special character).";
 
 	const validateForm = (): boolean => {
 		if (!emailRegex.test(email))
-			return (
-				emailRef.current?.focus(),
-				false
-			);
+			return emailRef.current?.focus(), toast.error(emailErrorMsg), false;
 		if (!passwordRegex.test(password))
 			return (
 				passwordRef.current?.focus(),
+				toast.error(passwordErrorMsg),
 				false
 			);
 
-		return true;
+		return alert("Form is valid"), true;
 	};
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
-		if (validateForm()) {
-		}
+		if (validateForm()) navigate('/dashboard')
 	};
 
 	return (
@@ -52,7 +54,9 @@ const LoginForm = () => {
 				/>
 			</div>
 			<p className="forgot-password">
-				<a href="/forgot-password">FORGOT PASSWORD</a>
+				<a onClick={() => alert("Sorry this feature is not available")}>
+					FORGOT PASSWORD
+				</a>
 			</p>
 			<button type="submit">LOG IN</button>
 		</form>
