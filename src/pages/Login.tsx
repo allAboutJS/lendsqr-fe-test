@@ -23,7 +23,7 @@ const Login = () => {
 				</div>
 				<div className="login-form-container">
 					<div>
-						<h1 className="bold">Welcome!</h1>
+						<h1>Welcome!</h1>
 						<p>Enter details to login.</p>
 					</div>
 					<LoginForm />
