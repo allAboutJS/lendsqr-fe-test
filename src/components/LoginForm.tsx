@@ -27,13 +27,13 @@ const LoginForm = () => {
 				false
 			);
 
-		return alert("Form is valid"), true;
+		return toast.success('Logged in as Adedeji'), true;
 	};
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
-		if (validateForm()) navigate('/dashboard')
+		if (validateForm()) navigate('/dashboard/users')
 	};
 
 	return (
