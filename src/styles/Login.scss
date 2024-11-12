@@ -15,14 +15,14 @@
 		flex-direction: column;
 		justify-content: center;
 
-		@media all and (max-width: 720px) {
+		@media screen and (max-width: 720px) {
 			width: 100%;
 		}
 
 		.logo-container {
 			padding: 2rem 1rem 0;
 
-			@media all and (min-width: 720px) {
+			@media screen and (min-width: 720px) {
 				display: none;
 			}
 		}
@@ -36,7 +36,7 @@
 			margin: auto;
 			width: 100%;
 
-			@media all and (max-width: 720px) {
+			@media screen and (max-width: 720px) {
 				width: 100%;
 				padding: 1rem;
 				gap: 3rem;
@@ -50,9 +50,10 @@
 
 				h1 {
 					font-size: 40px;
-					color: #213f7d;
+					color: var(--secondary-color);
+					font-weight: 700;
 
-					@media all and (max-width: 720px) {
+					@media screen and (max-width: 720px) {
 						font-size: 32px;
 					}
 				}
@@ -61,7 +62,7 @@
 					font-size: 20px;
 					color: #545f7d;
 
-					@media all and (max-width: 720px) {
+					@media screen and (max-width: 720px) {
 						font-size: 16px;
 					}
 				}
@@ -125,7 +126,7 @@
 		padding: 3rem;
 		background-color: #fafafa;
 
-		@media all and (max-width: 720px) {
+		@media screen and (max-width: 720px) {
 			display: none;
 		}
 
