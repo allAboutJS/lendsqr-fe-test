@@ -1,0 +1,8 @@
+/* This file contains styles for the app's logo */
+.logo {
+	display: block;
+	
+	@media screen and (max-width: 820px) {
+		width: 100px;
+	}
+}
