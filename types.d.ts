@@ -1,9 +1,11 @@
 export interface ToastOptions {
     duration: number;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onClick?: () => any;
 }
 
 export interface AlertOptions {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onClose?: () => any;
     btnText?: string;
 }
