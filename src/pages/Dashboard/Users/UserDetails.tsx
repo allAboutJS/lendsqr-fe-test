@@ -7,9 +7,12 @@ import { User } from "../../../../types";
 import { faker } from "@faker-js/faker";
 import { useState } from "react";
 import changeUserStatus from "../../../utils/changeUserStatus";
+import NotFound from "../../404";
 
 const UserDetails = () => {
 	const [user, setUser] = useState(useLoaderData() as User);
+
+	user && (document.title = user.personalInfo.name);
 
 	return user ? (
 		<div className="user-details">
@@ -265,7 +268,9 @@ const UserDetails = () => {
 				</div>
 			</div>
 		</div>
-	) : null;
+	) : (
+		<NotFound />
+	);
 };
 
 export default UserDetails;
