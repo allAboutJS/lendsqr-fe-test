@@ -1,8 +1,11 @@
+/** This file contains the logic for the user login form. */
+
 import { FormEvent, useRef, useState } from "react";
 import Input from "./Input";
-import { alert, toast } from "../utils/notifications-system";
+import { alert, toast } from "../utils/notificationsSystem";
 import { useNavigate } from "react-router-dom";
 
+/** Login Form Component. */
 const LoginForm = () => {
 	const navigate = useNavigate();
 	const [email, setEmail] = useState<string>("");
@@ -12,11 +15,10 @@ const LoginForm = () => {
 	const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 	const passwordRegex =
 		/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
-	const emailErrorMsg =
-		"Invalid email format. Please enter a valid email address.";
-	const passwordErrorMsg =
-		"Password must be at least six (6) characters (at least one uppercase, one lowercase and one special character).";
+	const emailErrorMsg = "Invalid email format. Please enter a valid email address.";
+	const passwordErrorMsg = "Password must be at least six (6) characters (at least one uppercase, one lowercase and one special character).";
 
+	/** Helper function to validate user input. */
 	const validateForm = (): boolean => {
 		if (!emailRegex.test(email))
 			return emailRef.current?.focus(), toast.error(emailErrorMsg), false;
@@ -30,6 +32,7 @@ const LoginForm = () => {
 		return toast.success('Logged in as Adedeji'), true;
 	};
 
+	/** Helper function to handle form submisssion. It doesn't do much. LOL */
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
