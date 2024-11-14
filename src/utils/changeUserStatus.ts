@@ -69,7 +69,10 @@ const changeUserStatus = (
 
                 openDbReq.onerror = toastError;
             };
-        } catch (error) {}
+        } catch (error) {
+            console.error('Error while updating user status', error)
+            toast.error('Request failed!');
+        }
     } else toast.error("Request failed!");
 };
 
