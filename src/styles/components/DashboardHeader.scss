@@ -1,0 +1,169 @@
+/* This file contains styles for the dashboard's header */
+.dashboard-header {
+	display: flex;
+	gap: 1.5rem;
+	justify-content: space-between;
+	padding: 1rem 1.5rem;
+	background-color: #ffffff;
+	box-shadow: 0 2px 10px #f1f1f1;
+	align-items: center;
+	position: sticky;
+	top: 0;
+	width: 100%;
+	left: 0;
+	z-index: 50;
+
+	& > div:first-child {
+		display: flex;
+		align-items: center;
+
+		button {
+			margin-right: 1rem;
+			width: 32px;
+			height: 32px;
+			border-radius: 50%;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+
+			&:active {
+				background-color: #e1e1e1;
+			}
+
+			@media screen and (min-width: 820px) {
+				display: none;
+			}
+		}
+	}
+
+	.search-bar {
+		border: 1px solid var(--secondary-color);
+		border-radius: var(--border-radius-secondary);
+		display: inherit;
+		overflow: hidden;
+		flex: 1 1;
+		height: 40px;
+		max-width: 400px;
+
+		@media screen and (max-width: 720px) {
+			display: none;
+		}
+
+		& > div {
+			position: relative;
+			flex: 1;
+			height: 100%;
+
+			input {
+				font-size: 14px;
+				padding: 0.5rem 1.5rem;
+				min-width: 0;
+				width: 100%;
+
+				&::placeholder {
+					color: #545f7d;
+				}
+			}
+
+			button {
+				position: absolute;
+				right: 0.5rem;
+				transform: translateY(-50%);
+				top: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 24px;
+				height: 24px;
+				border-radius: 50%;
+
+				&:hover {
+					background-color: #e1e1e1;
+				}
+
+				&:active {
+					transform: scale(0.9) translateY(-50%);
+				}
+			}
+		}
+
+		& > button {
+			background-color: var(--primary-cta-color);
+			padding: 0.5rem 1rem;
+
+			&:active {
+				background-color: var(--primary-cta-active-color);
+			}
+		}
+	}
+
+	.nav {
+		display: inherit;
+		align-items: inherit;
+		gap: 1.5rem;
+
+		@media screen and (max-width: 720px) {
+			gap: 0.5rem;
+		}
+
+		.links {
+			color: var(--secondary-color);
+			display: inherit;
+			align-items: inherit;
+			gap: 2rem;
+
+			@media screen and (max-width: 720px) {
+				gap: 0.5rem;
+			}
+
+			& > :nth-child(1) {
+				text-decoration: underline;
+
+				@media screen and (max-width: 720px) {
+					display: none;
+				}
+			}
+
+			button {
+				@media screen and (min-width: 720px) {
+					display: none;
+				}
+			}
+		}
+
+		.profile {
+			display: inherit;
+			align-items: inherit;
+			gap: 0.5rem;
+
+			& > div:first-child {
+				height: 48px;
+				width: 48px;
+				background-color: #e1e1e1;
+				border-radius: 50%;
+				overflow: hidden;
+
+				@media screen and (max-width: 720px) {
+					height: 24px;
+					width: 24px;
+				}
+			}
+
+			& > button:last-child {
+				display: inherit;
+				align-items: inherit;
+				padding: 0.25rem 0.5rem;
+				color: var(--secondary-color);
+				border-radius: 9999px;
+
+				&:hover {
+					background-color: var(--bg-hover);
+				}
+
+				@media screen and (max-width: 720px) {
+					display: none;
+				}
+			}
+		}
+	}
+}
