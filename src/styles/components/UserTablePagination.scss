@@ -1,0 +1,43 @@
+/** This file contains styles for the user table pagination component */
+
+.table-pagination {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 3rem;
+	flex-wrap: wrap;
+	font-size: 14px;
+	color: var(--secondary-color);
+	width: 100%;
+
+	@media screen and (max-width: 520px) {
+		justify-content: center;
+	}
+
+	& > div:last-child {
+		display: flex;
+
+		button {
+			height: 32px;
+			width: 32px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: var(--border-radius-secondary);
+
+			&:first-child,
+			&:last-child {
+				background-color: #213f7d1a;
+			}
+
+			&:hover {
+				background-color: var(--bg-hover);
+			}
+
+			&[data-active="true"] {
+				font-weight: 900;
+				color: #545f7d;
+			}
+		}
+	}
+}
