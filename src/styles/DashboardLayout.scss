@@ -1,0 +1,44 @@
+/* This file contains styles for the dashboard's root layout */
+
+.dashboard-layout {
+	& > div:nth-child(2) {
+		aside {
+			padding: 1rem 0;
+			box-shadow: 2px 0 10px #f1f1f1;
+			width: 283px;
+			position: fixed;
+			bottom: 0;
+			top: 80px;
+			overflow: auto;
+			background-color: #ffffff;
+			transition: var(--transition);
+
+			@media screen and (max-width: 820px) {
+				top: 0;
+				left: -100%;
+				z-index: 50;
+
+				&[data-open="true"] {
+					display: block;
+					left: 0;
+				}
+			}
+		}
+
+		main {
+			margin-left: 283px;
+			flex: 1;
+			background-color: #fafafa;
+			min-height: calc(100vh - 80px);
+			padding: 1.5rem;
+
+			@media screen and (max-width: 820px) {
+				margin-left: 0;
+			}
+
+			@media screen and (max-width: 720px) {
+				padding: 1rem;
+			}
+		}
+	}
+}
