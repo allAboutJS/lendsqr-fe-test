@@ -28,7 +28,7 @@ Each page has been designed with close attention to pixel-perfect accuracy accor
 - **Language**: TypeScript
 - **Styling**: SCSS
 - **State Management**: React's built-in state tools
-- **Data Storage**: Local Storage / IndexedDB for user details persistence
+- **Data Storage**: IndexedDB for user details persistence
 - **Mock API**: [Mocky.io](https://www.mocky.io/) for simulating API data with 500 records
 
 ## Features
@@ -37,7 +37,7 @@ Each page has been designed with close attention to pixel-perfect accuracy accor
 - **Custom Toast Notifications**: A lightweight, custom notification system for enhanced user feedback.
 - **Data Persistence**: User details are stored locally to support offline access on the User Details page.
 - **TypeScript Support**: Strong type-checking ensures code reliability and maintainability.
-- **Testing**: Includes unit tests for both positive and negative scenarios.
+- **Testing**: Includes unit tests for components featuring both positive and negative scenarios.
 
 ## Getting Started
 
@@ -50,7 +50,7 @@ Each page has been designed with close attention to pixel-perfect accuracy accor
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/victor-onah/lendsqr-fe-test.git
+   git clone https://github.com/allaboutjs/lendsqr-fe-test.git
    cd lendsqr-fe-test
    ```
 
@@ -69,20 +69,13 @@ Each page has been designed with close attention to pixel-perfect accuracy accor
    yarn run build
    ```
 
-### Environment Variables
-
-The following environment variables are required:
-- **REACT_APP_API_URL**: Base URL for the mock API.
-
-Add them in an `.env` file at the root of the project.
-
 ## Usage
 
 The application supports the following flows:
 - **Login**: Secure access through a login form.
 - **Dashboard**: Overview of key data points with visual fidelity matching the Figma design.
 - **User List**: Dynamic table view of users fetched from the mock API.
-- **User Details**: Detailed view with local storage persistence for offline accessibility.
+- **User Details**: Detailed view with IndexedDB persistence for offline accessibility.
 
 ## Testing
 
@@ -100,7 +93,6 @@ src
 ├── assets          # Static assets (images, icons, fonts e.t.c.)
 ├── components      # Reusable components
 ├── pages           # Individual pages (Login, Dashboard, User List, User Details)
-├── services        # API service and mock data functions
 ├── styles          # Global and component-specific SCSS files
 ├── utils           # Utility functions (e.g., custom notification logic)
 └── App.tsx         # Main app component plus router
