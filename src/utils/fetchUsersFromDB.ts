@@ -2,7 +2,7 @@ import { User } from "../../types";
 
 /** Helper function to fetch users from IndexedDB */
 const fetchUsersFromDB = (): Promise<User[] | undefined> =>
-    new Promise(async (resolve) => {
+    new Promise((resolve) => {
         if (window.indexedDB) {
             const openDbRequest = window.indexedDB.open("LendsQR", 1);
             const errorEventHandler = () => {
@@ -32,6 +32,7 @@ const fetchUsersFromDB = (): Promise<User[] | undefined> =>
                     db.onerror = errorEventHandler;
                     transcation.onerror = errorEventHandler;
                     request.onerror = errorEventHandler;
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     request.onsuccess = (event: any) =>
                         // Resolve undefined if users array is empty
                         resolve(
