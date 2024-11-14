@@ -6,9 +6,10 @@ import { toast } from "./notificationsSystem";
 const userDetailsLoader = ({
     params,
 }: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     params: any;
 }): Promise<User | null> =>
-    new Promise(async (resolve) => {
+    new Promise((resolve) => {
         // Find user in the database first
         try {
             if (window.indexedDB) {
