@@ -1,0 +1,37 @@
+.error-404 {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: auto;
+	text-align: center;
+	color: var(--secondary-color);
+
+	h1 {
+		font-size: 6rem;
+		font-weight: 900;
+
+		@media screen and (max-width: 720px) {
+			font-size: 4rem;
+		}
+	}
+
+	p {
+		font-size: 1.5rem;
+		font-weight: 600;
+		margin-bottom: 2rem;
+	}
+
+	a {
+		padding: 0.5rem 1rem;
+		border-radius: var(--border-radius-secondary);
+		background-color: var(--primary-cta-color);
+		color: #ffffff;
+		font-weight: 500;
+
+		&:active {
+			background-color: var(--primary-cta-active-color);
+		}
+	}
+}
