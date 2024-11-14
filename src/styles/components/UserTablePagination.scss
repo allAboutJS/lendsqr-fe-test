@@ -14,6 +14,55 @@
 		justify-content: center;
 	}
 
+	& > div:first-child {
+		& > span {
+			position: relative;
+			display: inline-block;
+
+			& > button {
+				background-color: #e1e1e1;
+				height: 24px;
+				width: fit-content;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				padding: 0.5rem;
+				border-radius: var(--border-radius-secondary);
+
+				&:focus + span {
+					transform: scale(1)
+				}
+			}
+
+			span {
+				position: absolute;
+				display: flex;
+				flex-direction: column;
+				bottom: 100%;
+				background-color: #ffffff;
+				box-shadow: var(--box-shadow);
+				border-radius: var(--border-radius-primary);
+				transition: var(--transition);
+				transition-delay: 0.5s;
+				transform: scale(0);
+				transform-origin: bottom center;
+				width: 100%;
+
+				button {
+					height: 24px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					padding: 1rem;
+
+					&:hover {
+						background-color: var(--bg-hover);
+					}
+				}
+			}
+		}
+	}
+
 	& > div:last-child {
 		display: flex;
 

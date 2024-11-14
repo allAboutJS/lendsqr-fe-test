@@ -18,7 +18,7 @@ export const UserTableContext = createContext<UserTableCtx | null>(null);
 
 /** Users page */
 const IndexPage = () => {
-	document.title = 'Dashboard - Users'
+	document.title = "Dashboard - Users";
 
 	const [users, setUsers] = useState<User[]>();
 	const [activeUserCount, setActiveUserCount] = useState<number>();
@@ -80,16 +80,17 @@ const IndexPage = () => {
 		}
 	}, [state]);
 
-	useEffect(
-		() =>
-			dispatch({
-				type: "SET_TOTAL_PAGES",
-				payload: Math.ceil(
-					state.searchResults.length / defaultState.displayLimit,
-				),
-			}),
-		[state.searchResults],
-	);
+	useEffect(() => {
+		dispatch({
+			type: "SET_TOTAL_PAGES",
+			payload: Math.ceil(state.searchResults.length / state.displayLimit),
+		});
+
+		dispatch({
+			type: "SET_CURRENT_PAGE",
+			payload: 1,
+		});
+	}, [state.searchResults, state.displayLimit]);
 
 	return (
 		<UserTableContext.Provider value={{ state, dispatch }}>
@@ -137,11 +138,12 @@ const IndexPage = () => {
 							displayLimit={
 								state.currentPage === state.totalPages
 									? state.searchResults.length -
-										Math.floor(
-											state.searchResults.length /
-												state.displayLimit,
-										) *
-											state.displayLimit
+											Math.floor(
+												state.searchResults.length /
+													state.displayLimit,
+											) *
+												state.displayLimit ||
+										state.displayLimit
 									: state.displayLimit
 							}
 							totalUsers={state.searchResults.length}

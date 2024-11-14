@@ -84,6 +84,7 @@ export type ReducerAction =
     | { type: "SET_USERS"; payload: User[] }
     | { type: "SET_SEARCH_RESULTS"; payload: User[] }
     | { type: "SET_TOTAL_PAGES"; payload: number }
+    | { type: "SET_DISPLAY_LIMIT"; payload: number }
     | { type: "SET_EMAIL_FILTER"; payload: string }
     | { type: "SET_USERNAME_FILTER"; payload: string }
     | { type: "SET_PHONE_NUMBER_FILTER"; payload: string }

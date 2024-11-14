@@ -3,6 +3,7 @@
 import { Dispatch } from "react";
 import { ReducerAction } from "../../types";
 import "../styles/components/UserTablePagination.scss";
+import getPagination from "../utils/getPagination";
 
 const UserTablePagination = ({
 	currentPage,
@@ -17,52 +18,6 @@ const UserTablePagination = ({
 	displayLimit: number;
 	dispatch: Dispatch<ReducerAction>;
 }) => {
-	const getPagination = (
-		totalPages: number,
-		currentPage: number,
-	): (number | null)[] => {
-		return Array.from(
-			{ length: totalPages <= 6 ? totalPages : 6 },
-			(_, index) => {
-				if (index === 0) return 1;
-				if (index === 5) return totalPages;
-
-				const isMidRange =
-					currentPage > 1 + 3 && currentPage < totalPages - 3;
-				const isNearRange = currentPage <= 1 + 3;
-				const isFarRange = currentPage >= totalPages - 3;
-
-				if (isMidRange) {
-					if (index === 1) return null;
-					if (index === 4) return null;
-					if (index === 2) return currentPage;
-					if (index === 3) return currentPage + 1;
-				}
-
-				if (isNearRange) {
-					if (index === 4) return null;
-					return index + 1;
-				}
-
-				if (isFarRange) {
-					if (currentPage === totalPages) {
-						if (index === 4) return currentPage - 1;
-						if (index === 3) return currentPage - 2;
-						if (index === 2) return currentPage - 3;
-						if (index === 1) return null;
-					} else {
-						if (index === 4) return totalPages - 1;
-						if (index === 3) return totalPages - 2;
-						if (index === 2) return totalPages - 3;
-						if (index === 1) return null;
-					}
-				}
-
-				return null;
-			},
-		);
-	};
-
 	// Some complex calculations going on here
 	const changePage = (
 		pageNumber: number | null,
@@ -87,10 +42,42 @@ const UserTablePagination = ({
 				});
 	};
 
+	const displayLimits = [10, 20, 30, 40, 50];
+
 	return (
 		<div className="table-pagination">
 			<div>
-				Showing {displayLimit} out of {totalUsers}
+				Showing{" "}
+				<span>
+					<button>
+						{displayLimit}{" "}
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							height="20px"
+							viewBox="0 -960 960 960"
+							width="20px"
+							fill="currentColor"
+						>
+							<path d="M480-333 240-573l51-51 189 189 189-189 51 51-240 240Z" />
+						</svg>
+					</button>
+					<span>
+						{displayLimits.map((number) => (
+							<button
+								onClick={() =>
+									dispatch({
+										type: "SET_DISPLAY_LIMIT",
+										payload: number,
+									})
+								}
+								key={number}
+							>
+								{number}
+							</button>
+						))}
+					</span>
+				</span>{" "}
+				out of {totalUsers}
 			</div>
 			<div>
 				<button

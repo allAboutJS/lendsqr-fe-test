@@ -4,6 +4,8 @@ import { ReducerAction, UserTableState } from "../../types";
 const reducer = (state: UserTableState, action: ReducerAction) => {
 	if (action.type === "SET_SEARCH_RESULTS")
 		return { ...state, searchResults: action.payload };
+	if (action.type === "SET_DISPLAY_LIMIT")
+		return { ...state, displayLimit: action.payload };
 	if (action.type === "SET_TOTAL_PAGES")
 		return { ...state, totalPages: action.payload };
 	if (action.type === "SET_CURRENT_PAGE")
