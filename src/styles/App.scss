@@ -1,19 +1,19 @@
 /** This file contains default styles for the application. */
 @font-face {
-	font-family: "Avenir Next Regular";
-	src: url(../assets/fonts/AvenirNextLTPro-Regular.otf);
-	font-display: swap;
-}
-
-@font-face {
-	font-family: "Avenir Next Bold";
-	src: url(../assets/fonts/AvenirNextLTPro-Bold.otf);
+	font-family: "DM Sans";
+	src: url(../assets/fonts/DM_Sans.ttf) format(truetype);
 	font-display: swap;
 }
 
 :root {
 	--primary-cta-color: #39cdcc;
 	--primary-cta-active-color: #299191;
+	--secondary-color: #213f7d;
+	--transition: 0.3s linear all;
+	--bg-hover: #39cdcc20;
+	--box-shadow: 0 0 10px #f1f1f1;
+	--border-radius-primary: 4px;
+	--border-radius-secondary: 8px;
 }
 
 * {
@@ -21,26 +21,21 @@
 	margin: 0;
 	font-size: 16px;
 	box-sizing: border-box;
-	font-family: "Avenir Next Regular", sans-serif;
+	font-family: "DM Sans", sans-serif;
 	line-height: 1.5;
 	-webkit-tap-highlight-color: transparent;
-}
-
-.bold {
-	font-family: "Avenir Next Bold", sans-serif;
-	font-weight: bold;
 }
 
 a,
 a:link,
 a:active {
-	color: inherit;
 	text-decoration: unset;
 }
 
 a,
 button {
 	cursor: pointer;
+	color: inherit;
 }
 
 button,
@@ -48,4 +43,10 @@ input {
 	border: unset;
 	outline: unset;
 	background-color: unset;
+}
+
+hr {
+	border: none;
+	height: 1px;
+	background-color: #e1e1e1;
 }

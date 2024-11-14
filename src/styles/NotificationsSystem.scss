@@ -14,12 +14,13 @@
 	flex-direction: column;
 	gap: 0.5rem;
 	padding: 1rem;
+	z-index: 9999;
 
 	.toast {
 		padding: 1rem;
 		height: fit-content;
 		box-shadow: 0 2px 5px #e1e1e1;
-		border-radius: 4px;
+		border-radius: var(--border-radius-primary);
 		pointer-events: all;
 		cursor: pointer;
 		background-color: #d1d1ff;
@@ -65,14 +66,17 @@
 	justify-content: flex-end;
 	gap: 0.5rem;
 	padding: 1rem;
+	z-index: 9999;
 
 	.alert {
 		padding: 1rem;
 		height: fit-content;
 		font-size: 14px;
+		font-weight: 500;
+		color: var(--secondary-color);
 		box-shadow: 0 2px 5px #e1e1e1;
-		border-radius: 4px;
-		background-color: #f1f1f1;
+		border-radius: var(--border-radius-primary);
+		background-color: #ffffff;
 		animation: alertSlideIn 0.6s ease forwards;
 
 		&.hide {
