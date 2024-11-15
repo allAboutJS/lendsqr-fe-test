@@ -64,12 +64,16 @@ const UserTablePagination = ({
 					<span>
 						{displayLimits.map((number) => (
 							<button
-								onClick={() =>
+								onClick={() => (
 									dispatch({
 										type: "SET_DISPLAY_LIMIT",
 										payload: number,
+									}),
+									dispatch({
+										type: "SET_CURRENT_PAGE",
+										payload: 1,
 									})
-								}
+								)}
 								key={number}
 							>
 								{number}
