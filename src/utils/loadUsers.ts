@@ -6,19 +6,25 @@ import { User } from "../../types";
 import saveUsersToDb from "./saveUsersToDb";
 
 /** Helper function to load users from browser cache or remote server */
-const loadUsers = async (setUsers: Dispatch<SetStateAction<User[] | undefined>>) => {
+const loadUsers = async (
+	setUsers: Dispatch<SetStateAction<User[] | undefined>>,
+	silent?: true,
+) => {
 	// Fetch users locally from IndexedDB
 	let users = await fetchUsersFromDB();
 
 	// Fetch users remotely
 	if (!users) {
-		toast.error("Failed to fetch users locally. Fetching remotely...");
+		silent ||
+			toast.error("Failed to fetch users locally. Fetching remotely..."); // Only show this toast on initial call
 		users = await fetchUsers();
 
-		// If there are still no users try again
+		// If there are still no users try again after 10 seconds
 		if (!users) {
-			toast.error("Failed to fetch users. Retrying...");
-			setTimeout(loadUsers, 1000);
+			setTimeout(() => {
+				toast.error("Failed to fetch users. Retrying...");
+				loadUsers(setUsers, true);
+			}, 10000);
 		} else {
 			setUsers(users);
 
@@ -26,7 +32,7 @@ const loadUsers = async (setUsers: Dispatch<SetStateAction<User[] | undefined>>)
 			saveUsersToDb(users);
 		}
 	} else {
-		setUsers(users)
+		setUsers(users);
 	}
 };
 
