@@ -4,7 +4,7 @@ import { User } from "../../types";
 const fetchUsers = (): Promise<User[] | undefined> =>
     new Promise((resolve) => {
         fetch(
-            "https://run.mocky.io/v3/8b6ba517-9731-492a-a3cc-09ecb86f02b3",
+            "https://run.mocky.io/v3/a70a94d7-ad1f-4cb2-869f-ec2399ec7e2c",
         )
             .then((response) => response.json())
             .then(({ data }) => resolve(data as User[]))
