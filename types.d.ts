@@ -31,6 +31,7 @@ export interface User {
         gender: "MALE" | "FEMALE";
         maritalStatus: "Single" | "Married" | "Divorced";
         children: "None" | number;
+        residenceType: "Parent's House" | "Hotel Apartment" | "Estate" | "Federal Housing" | "Personal House"
     };
     educationAndEmployment: {
         employerName: string;
@@ -45,6 +46,7 @@ export interface User {
             | "₦400,000.00 - ₦1,000,000.00"
             | "₦1,000,000.00 - ₦5,000,000.00";
         loanRepayment: number;
+        qualification: "LLB" | "MBBS" | "BSc." | "BA" | "OND" | "HND" | "MSc." | "MA"
     };
     socials: {
         facebook: string;
