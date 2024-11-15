@@ -62,7 +62,7 @@ const IndexPage = () => {
 				),
 			});
 		}
-	}, [users, state.searchResults]);
+	}, [users]);
 
 	useEffect(() => {
 		if (state.users.length) {
