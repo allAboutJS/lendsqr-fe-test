@@ -29,7 +29,7 @@ Each page has been designed with close attention to pixel-perfect accuracy accor
 - **Styling**: SCSS
 - **State Management**: React's built-in state tools
 - **Data Storage**: IndexedDB for user details persistence
-- **Mock API**: [Mocky.io](https://www.mocky.io/) for simulating API data with 500 records
+- **Mock API**: [Mocky.io](https://designer.mocky.io/) for simulating API data with 500 records
 
 ## Features
 
